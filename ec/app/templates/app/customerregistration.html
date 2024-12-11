@@ -1,0 +1,53 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Customer Registration{% endblock title %}
+{% block main-content %}
+<!-- Tambahkan Google Font untuk tampilan lebih modern -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<div class="container" style="padding-bottom: 100px; font-family: 'Poppins', sans-serif;">
+    <div class="row my-5">
+        <!-- Kolom tengah dengan teks Customer Registration -->
+        <div class="col-md-6 offset-md-3 text-center">
+            <h3 class="fw-bold" style="font-size: 2.5rem; text-transform: uppercase; color: #aa906d;">Customer Registration</h3>
+            <p style="color: #000000;">Create an account to get started.</p>
+            <hr class="my-4">
+            
+            <!-- Form Registration -->
+            <form action="" method="post" novalidate class="shadow rounded p-4 bg-white">
+                {% csrf_token %}
+                {% for fm in form %}
+                    <div class="mb-3 text-start">
+                        {{ fm.label_tag }} 
+                        {{ fm }}
+                        <small class="text-danger">{{ fm.errors|striptags }}</small>
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="btn btn-success mt-4 w-100" style="font-weight: bold; font-size: 1rem; background-color: #aa906d;">Submit</button>
+
+                <!-- Link untuk Login -->
+                <div class="mt-4">
+                    <small>Existing User? <a href="{% url 'login' %}" style="color: #aa906d; font-weight: bold;">Login Now</a></small>
+                </div>
+
+                <!-- Error Messages -->
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="alert alert-danger my-3">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+
+                <!-- Informasi Pesan -->
+                {% if messages %}
+                    {% for msg in messages %}
+                        <div class="alert alert-{{ msg.tags }}" role="alert">
+                            {{ msg }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

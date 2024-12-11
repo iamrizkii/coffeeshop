@@ -1,0 +1,46 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block main-content %}
+<!-- Tambahkan Google Font untuk tampilan lebih modern -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<div class="container" style="padding-bottom: 100px; font-family: 'Poppins', sans-serif;">
+    <div class="row my-5">
+        <!-- Kolom tengah dengan teks LOGIN -->
+        <div class="col-md-6 offset-md-3 text-center">
+            <h3 class="fw-bold" style="font-size: 2.5rem; text-transform: uppercase; color: #007BFF;">Login</h3>
+            <p style="color: #6c757d;">Welcome back! Please login to your account to continue.</p>
+            <hr class="my-4">
+            
+            <!-- Form Login -->
+            <form action="" method="post" novalidate class="shadow rounded p-4 bg-white">
+                {% csrf_token %}
+                {% for fm in form %}
+                    <div class="mb-3 text-start">
+                        {{ fm.label_tag }} 
+                        {{ fm }}
+                        <small class="text-danger">{{ fm.errors|striptags }}</small>
+                    </div>
+                {% endfor %}
+
+                <small><a href="{% url 'password_reset' %}" style="text-decoration: none; color: #007BFF;">Forgot Password?</a></small>
+                <br>
+                <button type="submit" class="btn btn-primary mt-4 w-100" style="font-weight: bold; font-size: 1rem;">Login</button>
+
+                <!-- Link untuk Register -->
+                <div class="mt-4">
+                    <small>New User? <a href="{% url 'customerregistration' %}" style="color: #007BFF; font-weight: bold;">Create an Account</a></small>
+                </div>
+
+                <!-- Error Messages -->
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="alert alert-danger my-3">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

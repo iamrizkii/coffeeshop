@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+}
+
+.login-container {
+    margin-bottom: 50px; /* Jarak dari footer */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* atau warna lainnya */
+    z-index: 10; /* Agar tetap di atas konten */
+  }
+  

@@ -1,0 +1,131 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+{% block banner-slider %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+        <!-- Banner 1 -->
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/banner/1.jpg' %}" class="d-block w-100">
+        </div>
+        <!-- Banner 2 -->
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/2.jpg' %}" class="d-block w-100">
+        </div>
+        <!-- Banner 3 -->
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/3.jpg' %}" class="d-block w-100">
+        </div>
+        <!-- Banner 4 -->
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/4.jpg' %}" class="d-block w-100">
+        </div>
+    </div>
+</div>
+{% endblock banner-slider %}
+
+{% block information %}
+<div class="container">
+    <div class="row text-center p-5 text-white border-bottom shadow" style="background-color: #aa906d;">
+        <h1 class="fw-bold">Products</h1>
+        <p class="fs-5">
+            Kami menawarkan delapan varian minuman kopi berkualitas yang diracik dengan bahan terbaik. Pilihan kami meliputi Espresso, kopi hitam klasik dengan cita rasa kuat; Americano, kombinasi espresso dan air panas yang lembut; Latte, perpaduan sempurna antara espresso dan susu yang creamy; Cappuccino, espresso dengan lapisan susu berbusa yang kaya; Mocha, campuran espresso, cokelat, dan susu yang manis; Macchiato, espresso dengan sentuhan lembut susu di atasnya; Flat White, espresso yang lembut dengan susu microfoam; serta Cold Brew, kopi dingin yang diseduh perlahan untuk rasa segar dan halus.
+        </p>
+    </div>
+</div>
+{% endblock information %}
+
+{% block main-content %}
+
+<div class="container py-4">
+    <h2 class="text-center" style="font-family: 'Poppins', sans-serif; font-weight: bold;">Coffee Products</h2>
+    <br><br>
+    <div class="row">
+        <!-- Ghee -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="product-box text-center p-3 border rounded shadow-sm">
+                <a href="{% url 'category' 'GH' %}">
+                    <img src="{% static 'app/images/product/espresso.png' %}" class="img-responsive center-block mb-3" alt="GHEE" style="max-width: 100%; height: auto;">
+                    <p class="mlkpro font-weight-bold">ESPRESSO</p>
+                </a>
+            </div>
+        </div>
+        <!-- Curd -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="product-box text-center p-3 border rounded shadow-sm">
+                <a href="{% url 'category' 'CR' %}">
+                    <img src="{% static 'app/images/product/america.png' %}" class="img-responsive center-block mb-3" alt="CURD" style="max-width: 100%; height: auto;">
+                    <p class="mlkpro font-weight-bold">AMERICANO</p>
+                </a>
+            </div>
+        </div>
+        <!-- Kulfi -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="product-box text-center p-3 border rounded shadow-sm">
+                <a href="{% url 'category' 'IC' %}">
+                    <img src="{% static 'app/images/product/lattte.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 100%; height: auto;">
+                    <p class="mlkpro font-weight-bold">LATTE</p>
+                </a>
+            </div>
+        </div>
+ <!-- Ghee -->
+ <div class="col-md-4 col-sm-6 mb-4">
+    <div class="product-box text-center p-3 border rounded shadow-sm">
+        <a href="{% url 'category' 'PN' %}">
+            <img src="{% static 'app/images/product/cappucino.png' %}" class="img-responsive center-block mb-3" alt="GHEE" style="max-width: 80%; height: auto;">
+            <p class="mlkpro font-weight-bold">CAPPUCINO</p>
+        </a>
+    </div>
+</div>
+<!-- Curd -->
+<div class="col-md-4 col-sm-6 mb-4">
+    <div class="product-box text-center p-3 border rounded shadow-sm">
+        <a href="{% url 'category' 'MK' %}">
+            <img src="{% static 'app/images/product/moccaa.png' %}" class="img-responsive center-block mb-3" alt="CURD" style="max-width: 100%; height: auto;">
+            <p class="mlkpro font-weight-bold">MOCHA</p>
+        </a>
+    </div>
+</div>
+<!-- Kulfi -->
+<div class="col-md-4 col-sm-6 mb-4">
+    <div class="product-box text-center p-3 border rounded shadow-sm">
+        <a href="{% url 'category' 'LS' %}">
+            <img src="{% static 'app/images/product/mochiato.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 80%; height: auto;">
+            <p class="mlkpro font-weight-bold">MACCHIATO</p>
+        </a>
+    </div>
+</div>
+<!-- FLAT -->
+<div class="col-md-4 col-sm-6 mb-4">
+    <div class="product-box text-center p-3 border rounded shadow-sm">
+        <a href="{% url 'category' 'LS' %}">
+            <img src="{% static 'app/images/product/flat_white.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 80%; height: auto;">
+            <p class="mlkpro font-weight-bold">FLAT WHITE</p>
+        </a>
+    </div>
+</div>
+<!-- COLD -->
+<div class="col-md-4 col-sm-6 mb-4">
+    <div class="product-box text-center p-3 border rounded shadow-sm">
+        <a href="{% url 'category' 'LS' %}">
+            <img src="{% static 'app/images/product/cold_brew.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 80%; height: auto;">
+            <p class="mlkpro font-weight-bold">COLD BREW</p>
+        </a>
+    </div>
+</div>
+<!-- COLD -->
+<div class="col-md-4 col-sm-6 mb-4">
+    <div class="product-box text-center p-3 border rounded shadow-sm">
+        <a href="{% url 'category' 'LS' %}">
+            <img src="{% static 'app/images/product/cafe_moca.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 80%; height: auto;">
+            <p class="mlkpro font-weight-bold">CAFE MOCHA</p>
+        </a>
+    </div>
+</div>
+    </div>
+    <br><br>
+</div>
+{% endblock main-content %}

@@ -1,0 +1,62 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Checkout{% endblock title %}
+{% block main-content %}
+<div class="container" style="padding-bottom: 80px;"> <!-- Tambahkan padding-bottom -->
+  {% if messages %}
+    {% for msg in messages %}
+      <div class="alert alert-danger" role="alert">
+        {{ msg }}
+      </div>
+    {% endfor %}
+  {% endif %}
+  <div class="row mt-3">
+    <!-- Kolom Kiri: Order Summary -->
+    <div class="col-md-7">
+      <h4>Order Summary</h4>
+      <hr>
+      {% for item in cart_items %}
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5>Product: {{ item.product.title }}</h5>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p class="fw-bold">Price: {{ item.product.discounted_price }}</p>
+          </div>
+        </div>
+      {% endfor %}
+      <p class="fw-bold">Total Cost + Rp. 400 = {{ totalamount }}</p>
+      <small>Harga total sudah termasuk biaya pengemasan dan pengiriman standar. Barang yang sudah dibeli tidak dapat dikembalikan atau ditukar, kecuali terdapat kerusakan saat diterima. Pastikan informasi alamat pengiriman yang diberikan sudah benar untuk menghindari keterlambatan. Kami berhak membatalkan pesanan jika terjadi kesalahan harga atau stok tidak tersedia.
+      </small>
+    </div>
+
+    <!-- Kolom Kanan: Select Shipping Address -->
+    <div class="col-md-4 offset-md-1">
+      <h4>Select Shipping Address</h4>
+      <hr>
+      <form method="post" id="myform">
+        {% csrf_token %}
+        {% for ad in add %}
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5>{{ ad.name }}</h5>
+              <p>Mobile: {{ ad.mobile }}</p>
+              <p>{{ ad.locality }} {{ ad.city }} {{ ad.state }} {{ ad.zipcode }}</p>
+            </div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="custid" id="custadd{{ forloop.counter }}" value="{{ ad.id }}">
+            <label class="form-check-label fw-bold" for="custadd{{ forloop.counter }}">
+              Address: {{ forloop.counter }}
+            </label>
+          </div>
+        {% endfor %}
+        <div class="mt-4">
+          <label for="totamount" class="form-label">Total Amount</label>
+          <input type="number" class="form-control mb-3" name="totamount" value="{{ totalamount }}" readonly>
+          <button id="rzp-button1" type="submit" class="btn btn-warning px-5 fw-bold w-100">Payment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock main-content %}
