@@ -15,3 +15,9 @@ footer {
     z-index: 10; /* Agar tetap di atas konten */
   }
   
+  .navbar .nav-item.ms-auto {
+    position: absolute;
+    right: 20px; /* Sesuaikan jaraknya */
+    top: 50%; /* Sesuaikan posisinya */
+    transform: translateY(-50%);
+}
