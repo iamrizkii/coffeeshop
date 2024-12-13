@@ -9,8 +9,8 @@
     <div class="row my-5">
         <!-- Kolom tengah dengan teks LOGIN -->
         <div class="col-md-6 offset-md-3 text-center">
-            <h3 class="fw-bold" style="font-size: 2.5rem; text-transform: uppercase; color: #007BFF;">Login</h3>
-            <p style="color: #6c757d;">Welcome back! Please login to your account to continue.</p>
+            <h3 class="fw-bold" style="font-size: 2.5rem; text-transform: uppercase; color: #aa906d;">Login</h3>
+            <p style="color: #000000;">Welcome back! Please login to your account to continue.</p>
             <hr class="my-4">
             
             <!-- Form Login -->
@@ -24,13 +24,13 @@
                     </div>
                 {% endfor %}
 
-                <small><a href="{% url 'password_reset' %}" style="text-decoration: none; color: #007BFF;">Forgot Password?</a></small>
+                <small><a href="{% url 'password_reset' %}" style="text-decoration: none; color: #000000;">Forgot Password?</a></small>
                 <br>
-                <button type="submit" class="btn btn-primary mt-4 w-100" style="font-weight: bold; font-size: 1rem;">Login</button>
+                <button type="submit" class="btn btn-primary mt-4 w-100 " style="font-weight: bold; font-size: 1rem; background-color: #aa906d;">Login</button>
 
                 <!-- Link untuk Register -->
                 <div class="mt-4">
-                    <small>New User? <a href="{% url 'customerregistration' %}" style="color: #007BFF; font-weight: bold;">Create an Account</a></small>
+                    <small>New User? <a href="{% url 'customerregistration' %}" style="color: #aa906d; font-weight: bold;">Create an Account</a></small>
                 </div>
 
                 <!-- Error Messages -->
