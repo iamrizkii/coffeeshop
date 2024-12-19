@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Payment Confirmation{% endblock title %}
+
+{% block main-content %}
+<div class="container d-flex flex-column justify-content-between" style="min-height: 80vh;">
+    <div class="card mx-auto shadow-lg" style="max-width: 500px; border-radius: 15px;">
+        <div class="card-header bg-success text-white rounded-top text-center">
+            <h3 class="mb-0">PAYMENT CONFIRMATION</h3>
+        </div>
+        <div class="card-body text-center">
+            <h5 class="mb-4 text-muted">You have selected <strong>{{ method }}</strong> as your payment method.</h5>
+            {% if method == 'Cash' %}
+                <p class="text-muted">Please prepare the exact amount of cash upon delivery.</p>
+            {% elif method == 'Transfer' %}
+                <p class="text-muted">Please transfer the total amount to the following bank account:</p>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">Bank: BNI</li>
+                    <li class="list-group-item">Account Number: 9248685478</li>
+                    <li class="list-group-item">Account Name: Rizky Coffee Shop</li>
+                </ul>
+            {% endif %}
+            <p class="text-muted mb-3">Confirm your payment by contacting us via WhatsApp: <strong>+62 813 8298 7145 (Rizky)</strong></p>
+            <a href="{% url 'home' %}" class="btn btn-primary btn-lg mt-3">Back to Home</a>
+        </div>        
+    </div>
+</div>
+{% endblock main-content %}

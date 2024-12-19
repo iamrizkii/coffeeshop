@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Payment Confirmation{% endblock title %}
+{% block main-content %}
+<div class="container text-center" style="padding: 50px 0;">
+  <div class="card shadow-lg mx-auto" style="max-width: 400px; border-radius: 10px;">
+    <div class="card-body p-4">
+      <h2 class="text-success mb-3">Payment Confirmed!</h2>
+      <p class="fs-5">Thank you for your order.</p>
+      <hr>
+      <p class="fw-bold">Payment Method: <span class="text-primary">{{ method }}</span></p>
+      <p>Your order has been successfully placed. We will process it soon!</p>
+      <a href="{% url 'home' %}" class="btn btn-warning mt-3 w-100">Return to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock main-content %}

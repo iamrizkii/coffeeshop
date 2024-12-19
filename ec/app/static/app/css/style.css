@@ -21,3 +21,10 @@ footer {
     top: 50%; /* Sesuaikan posisinya */
     transform: translateY(-50%);
 }
+
+.transition-hover:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+

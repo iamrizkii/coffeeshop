@@ -3,33 +3,57 @@
 {% block title %}Address{% endblock title %}
 {% block main-content %}
 <div class="container my-5">
-    <div class="row">
-        <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
-        <div class="col-sm-2 border-end">
-            <ul class="list-unstyled">
-                <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Profile</a></li>
-                <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-primary">Address</a></li>
-            </ul>
-        </div>
+    <div class="row justify-content-center">
+        <!-- Welcome Header -->
+        <h3 class="text-center mb-4">Welcome, <span class="text-capitalize text-primary">{{ request.user }}</span></h3>
 
-<div class="col-sm-8 offset-sm-1">
-    <div class="row">
-        {% for ad in add %}
-        <div class="col-sm-6">
-            <div class="card m-2">
-                <div class="card-body">
-                    <h3>Address {{ forloop.counter }}</h3>
-                    <p>Name: {{ ad.name }}</p>
-                    <p>Locality: {{ ad.locality }}</p>
-                    <p>Mobile: {{ ad.mobile }}</p>
-                    <p>City: {{ ad.city }}</p>
-                    <p>State: {{ ad.state }}</p>
-                    <p>Pincode: {{ ad.zipcode }}</p>
-                    <p class="text-center"><a href="{% url 'updateAddress' pk=ad.id%}" type="button" class="btn btn-success">Update</a></p>
+        <!-- Sidebar Menu -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center fw-bold">
+                    Menu
+                </div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{% url 'profile' %}" class="btn btn-outline-primary w-100">Profile</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{% url 'address' %}" class="btn btn-primary w-100">Address</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        {% endfor %}
+
+        <!-- Address Cards -->
+        <div class="col-md-8">
+            <div class="row">
+                {% for ad in add %}
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Address {{ forloop.counter }}</h5>
+                            <p class="mb-1"><strong>Name:</strong> {{ ad.name }}</p>
+                            <p class="mb-1"><strong>Locality:</strong> {{ ad.locality }}</p>
+                            <p class="mb-1"><strong>Mobile:</strong> {{ ad.mobile }}</p>
+                            <p class="mb-1"><strong>City:</strong> {{ ad.city }}</p>
+                            <p class="mb-1"><strong>State:</strong> {{ ad.state }}</p>
+                            <p class="mb-1"><strong>Pincode:</strong> {{ ad.zipcode }}</p>
+
+                            <div class="d-flex justify-content-between mt-3">
+                                <a href="{% url 'updateAddress' pk=ad.id %}" class="btn btn-success btn-sm">Update</a>
+                                <form action="{% url 'deleteAddress' pk=ad.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this address?');">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    
+</div>
 {% endblock main-content %}

@@ -40,92 +40,93 @@
 
 {% block main-content %}
 
-<div class="container py-4">
-    <h2 class="text-center" style="font-family: 'Poppins', sans-serif; font-weight: bold;">Coffee Products</h2>
-    <br><br>
-    <div class="row">
-        <!-- Ghee -->
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="product-box text-center p-3 border rounded shadow-sm">
-                <a href="{% url 'category' 'GH' %}">
-                    <img src="{% static 'app/images/product/espresso.png' %}" class="img-responsive center-block mb-3" alt="GHEE" style="max-width: 100%; height: auto;">
-                    <p class="mlkpro font-weight-bold">ESPRESSO</p>
+<div class="container py-5">
+    <h2 class="text-center mb-5" style="font-family: 'Poppins', sans-serif; font-weight: bold; color: #4B4B4B;">
+        Coffee Products
+    </h2>
+    <div class="row g-4">
+        <!-- Product 1 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product-box text-center p-4 border border-0 rounded-3 shadow-sm bg-white transition-hover">
+                <a href="{% url 'category' 'GH' %}" class="text-decoration-none text-dark">
+                    <img src="{% static 'app/images/product/espresso.png' %}" class="img-fluid mb-3 rounded" alt="ESPRESSO" style="max-height: 180px; object-fit: contain;">
+                    <h5 class="fw-bold">ESPRESSO</h5>
                 </a>
             </div>
         </div>
-        <!-- Curd -->
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="product-box text-center p-3 border rounded shadow-sm">
-                <a href="{% url 'category' 'CR' %}">
-                    <img src="{% static 'app/images/product/america.png' %}" class="img-responsive center-block mb-3" alt="CURD" style="max-width: 100%; height: auto;">
-                    <p class="mlkpro font-weight-bold">AMERICANO</p>
+        <!-- Product 2 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product-box text-center p-4 border border-0 rounded-3 shadow-sm bg-white transition-hover">
+                <a href="{% url 'category' 'CR' %}" class="text-decoration-none text-dark">
+                    <img src="{% static 'app/images/product/america.png' %}" class="img-fluid mb-3 rounded" alt="AMERICANO" style="max-height: 180px; object-fit: contain;">
+                    <h5 class="fw-bold">AMERICANO</h5>
                 </a>
             </div>
         </div>
-        <!-- Kulfi -->
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="product-box text-center p-3 border rounded shadow-sm">
-                <a href="{% url 'category' 'IC' %}">
-                    <img src="{% static 'app/images/product/lattte.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 100%; height: auto;">
-                    <p class="mlkpro font-weight-bold">LATTE</p>
+        <!-- Product 3 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product-box text-center p-4 border border-0 rounded-3 shadow-sm bg-white transition-hover">
+                <a href="{% url 'category' 'IC' %}" class="text-decoration-none text-dark">
+                    <img src="{% static 'app/images/product/lattte.png' %}" class="img-fluid mb-3 rounded" alt="LATTE" style="max-height: 180px; object-fit: contain;">
+                    <h5 class="fw-bold">LATTE</h5>
                 </a>
             </div>
         </div>
- <!-- Ghee -->
- <div class="col-md-4 col-sm-6 mb-4">
-    <div class="product-box text-center p-3 border rounded shadow-sm">
-        <a href="{% url 'category' 'PN' %}">
-            <img src="{% static 'app/images/product/cappucino.png' %}" class="img-responsive center-block mb-3" alt="GHEE" style="max-width: 80%; height: auto;">
-            <p class="mlkpro font-weight-bold">CAPPUCINO</p>
-        </a>
+        <!-- Product 4 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product-box text-center p-4 border border-0 rounded-3 shadow-sm bg-white transition-hover">
+                <a href="{% url 'category' 'PN' %}" class="text-decoration-none text-dark">
+                    <img src="{% static 'app/images/product/cappucino.png' %}" class="img-fluid mb-3 rounded" alt="CAPPUCINO" style="max-height: 180px; object-fit: contain;">
+                    <h5 class="fw-bold">CAPPUCINO</h5>
+                </a>
+            </div>
+        </div>
+        <!-- Product 5 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product-box text-center p-4 border border-0 rounded-3 shadow-sm bg-white transition-hover">
+                <a href="{% url 'category' 'MK' %}" class="text-decoration-none text-dark">
+                    <img src="{% static 'app/images/product/moccaa.png' %}" class="img-fluid mb-3 rounded" alt="MOCHA" style="max-height: 180px; object-fit: contain;">
+                    <h5 class="fw-bold">MOCHA</h5>
+                </a>
+            </div>
+        </div>
+        <!-- Product 6 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product-box text-center p-4 border border-0 rounded-3 shadow-sm bg-white transition-hover">
+                <a href="{% url 'category' 'LS' %}" class="text-decoration-none text-dark">
+                    <img src="{% static 'app/images/product/mochiato.png' %}" class="img-fluid mb-3 rounded" alt="MACCHIATO" style="max-height: 180px; object-fit: contain;">
+                    <h5 class="fw-bold">MACCHIATO</h5>
+                </a>
+            </div>
+        </div>
+        <!-- Product 7 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product-box text-center p-4 border border-0 rounded-3 shadow-sm bg-white transition-hover">
+                <a href="{% url 'category' 'LS' %}" class="text-decoration-none text-dark">
+                    <img src="{% static 'app/images/product/flat_white.png' %}" class="img-fluid mb-3 rounded" alt="FLAT WHITE" style="max-height: 180px; object-fit: contain;">
+                    <h5 class="fw-bold">FLAT WHITE</h5>
+                </a>
+            </div>
+        </div>
+        <!-- Product 8 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product-box text-center p-4 border border-0 rounded-3 shadow-sm bg-white transition-hover">
+                <a href="{% url 'category' 'LS' %}" class="text-decoration-none text-dark">
+                    <img src="{% static 'app/images/product/cold_brew.png' %}" class="img-fluid mb-3 rounded" alt="COLD BREW" style="max-height: 180px; object-fit: contain;">
+                    <h5 class="fw-bold">COLD BREW</h5>
+                </a>
+            </div>
+        </div>
+        <!-- Product 9 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product-box text-center p-4 border border-0 rounded-3 shadow-sm bg-white transition-hover">
+                <a href="{% url 'category' 'LS' %}" class="text-decoration-none text-dark">
+                    <img src="{% static 'app/images/product/cafe_moca.png' %}" class="img-fluid mb-3 rounded" alt="CAFE MOCHA" style="max-height: 180px; object-fit: contain;">
+                    <h5 class="fw-bold">CAFE MOCHA</h5>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
-<!-- Curd -->
-<div class="col-md-4 col-sm-6 mb-4">
-    <div class="product-box text-center p-3 border rounded shadow-sm">
-        <a href="{% url 'category' 'MK' %}">
-            <img src="{% static 'app/images/product/moccaa.png' %}" class="img-responsive center-block mb-3" alt="CURD" style="max-width: 100%; height: auto;">
-            <p class="mlkpro font-weight-bold">MOCHA</p>
-        </a>
-    </div>
-</div>
-<!-- Kulfi -->
-<div class="col-md-4 col-sm-6 mb-4">
-    <div class="product-box text-center p-3 border rounded shadow-sm">
-        <a href="{% url 'category' 'LS' %}">
-            <img src="{% static 'app/images/product/mochiato.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 80%; height: auto;">
-            <p class="mlkpro font-weight-bold">MACCHIATO</p>
-        </a>
-    </div>
-</div>
-<!-- FLAT -->
-<div class="col-md-4 col-sm-6 mb-4">
-    <div class="product-box text-center p-3 border rounded shadow-sm">
-        <a href="{% url 'category' 'LS' %}">
-            <img src="{% static 'app/images/product/flat_white.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 80%; height: auto;">
-            <p class="mlkpro font-weight-bold">FLAT WHITE</p>
-        </a>
-    </div>
-</div>
-<!-- COLD -->
-<div class="col-md-4 col-sm-6 mb-4">
-    <div class="product-box text-center p-3 border rounded shadow-sm">
-        <a href="{% url 'category' 'LS' %}">
-            <img src="{% static 'app/images/product/cold_brew.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 80%; height: auto;">
-            <p class="mlkpro font-weight-bold">COLD BREW</p>
-        </a>
-    </div>
-</div>
-<!-- COLD -->
-<div class="col-md-4 col-sm-6 mb-4">
-    <div class="product-box text-center p-3 border rounded shadow-sm">
-        <a href="{% url 'category' 'LS' %}">
-            <img src="{% static 'app/images/product/cafe_moca.png' %}" class="img-responsive center-block mb-3" alt="KULFI" style="max-width: 80%; height: auto;">
-            <p class="mlkpro font-weight-bold">CAFE MOCHA</p>
-        </a>
-    </div>
-</div>
-    </div>
-    <br><br>
-</div>
+
 {% endblock main-content %}

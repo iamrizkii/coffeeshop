@@ -7,7 +7,7 @@ from django.contrib.auth import views as auth_view
 from .forms import LoginForm, MyPasswordChangeForm, MyPasswordResetForm, MySetPasswordForm
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.home,name='home'),
     path('about/', views.about,name='about'),
     path('contact/', views.contact,name='contact'),
     path('category/<slug:val>', views.CategoryView.as_view(),name='category'),
@@ -16,6 +16,8 @@ urlpatterns = [
     path('profile/', views.ProfileView.as_view(),name='profile'),
     path('address/', views.address, name='address'),
     path('updateAddress/<int:pk>', views.updateAddress.as_view(),name='updateAddress'),
+    path('delete-address/<int:pk>/', views.delete_address, name='deleteAddress'),
+
 
     path('add-to-cart/', views.add_to_cart, name='add-to-cart'),
     path('cart/', views.show_cart, name='showcart'),
@@ -50,6 +52,9 @@ urlpatterns = [
     name='password_reset_done'),
     path('password-reset-confirm/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(template_name='app/password_reset_confirm.html' ,form_class=MySetPasswordForm) , name='password_reset_confirm'),
     path('password-reset-complete/', auth_view.PasswordResetCompleteView.as_view(template_name='app/password_reset_complete.html') , name='password_reset_complete'),
+    
+    path('payment/cash/', views.payment_cash, name='cash-payment'),
+    path('payment/transfer/', views.payment_transfer, name='transfer-payment'),
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

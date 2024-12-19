@@ -1,6 +1,7 @@
+from email.headerregistry import Address
 from django.db.models import Count
-from django.http import JsonResponse
-from django.shortcuts import redirect, render
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 import razorpay
 from . models import Cart, Customer, OrderPlaced, Payment, Product, Wishlist
@@ -340,3 +341,23 @@ def public_search(request):
         'results': results,
     }
     return render(request, 'app/public_search.html', context)
+
+# Metode Pembayaran: Cash
+def payment_cash(request):
+    # Logika pembayaran cash, misalnya redirect ke halaman konfirmasi
+    return render(request, 'app/payment_cash.html', {'method': 'Cash'})
+
+# Metode Pembayaran: Transfer
+def payment_transfer(request):
+    # Logika pembayaran transfer, misalnya redirect ke halaman transfer
+    return render(request, 'app/payment_transfer.html', {'method': 'Transfer'})
+
+def delete_address(request, pk):
+    if request.method == "POST":
+        address = get_object_or_404(Customer, pk=pk, user=request.user)
+        address.delete()
+        messages.success(request, "Address has been deleted successfully.")
+        return redirect('address')
+    else:
+        messages.error(request, "Invalid request.")
+        return redirect('address')

@@ -68,16 +68,17 @@ class Product(models.Model):
         return self.title
 
 class Customer(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="addresses")
     name = models.CharField(max_length=200)
     locality = models.CharField(max_length=200)
     city = models.CharField(max_length=50)
     mobile = models.IntegerField(default=0)
     zipcode = models.IntegerField()
     state = models.CharField(choices=STATE_CHOICES, max_length=100)
+    default_address = models.BooleanField(default=False)  # Tambahan kolom
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.locality}"
     
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

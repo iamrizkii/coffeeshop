@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Checkout{% endblock title %}
 {% block main-content %}
-<div class="container" style="padding-bottom: 80px;"> <!-- Tambahkan padding-bottom -->
+<div class="container" style="padding-bottom: 80px;">
   {% if messages %}
     {% for msg in messages %}
       <div class="alert alert-danger" role="alert">
@@ -10,13 +10,14 @@
       </div>
     {% endfor %}
   {% endif %}
+  
   <div class="row mt-3">
     <!-- Kolom Kiri: Order Summary -->
     <div class="col-md-7">
       <h4>Order Summary</h4>
       <hr>
       {% for item in cart_items %}
-        <div class="card mb-3">
+        <div class="card mb-3 shadow-sm">
           <div class="card-body">
             <h5>Product: {{ item.product.title }}</h5>
             <p>Quantity: {{ item.quantity }}</p>
@@ -25,7 +26,8 @@
         </div>
       {% endfor %}
       <p class="fw-bold">Total Cost + Rp. 400 = {{ totalamount }}</p>
-      <small>Harga total sudah termasuk biaya pengemasan dan pengiriman standar. Barang yang sudah dibeli tidak dapat dikembalikan atau ditukar, kecuali terdapat kerusakan saat diterima. Pastikan informasi alamat pengiriman yang diberikan sudah benar untuk menghindari keterlambatan. Kami berhak membatalkan pesanan jika terjadi kesalahan harga atau stok tidak tersedia.
+      <small class="text-muted">
+        Harga total sudah termasuk biaya pengemasan dan pengiriman standar. Barang yang sudah dibeli tidak dapat dikembalikan atau ditukar, kecuali terdapat kerusakan saat diterima.
       </small>
     </div>
 
@@ -50,13 +52,38 @@
             </label>
           </div>
         {% endfor %}
+
+        <!-- Total Amount Input -->
         <div class="mt-4">
           <label for="totamount" class="form-label">Total Amount</label>
           <input type="number" class="form-control mb-3" name="totamount" value="{{ totalamount }}" readonly>
-          <button id="rzp-button1" type="submit" class="btn btn-warning px-5 fw-bold w-100">Payment</button>
+
+          <!-- Payment Button -->
+          <button type="button" class="btn btn-warning px-5 fw-bold w-100" onclick="showPaymentModal()">Payment</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+<!-- Modal untuk Memilih Metode Pembayaran -->
+<div id="paymentModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000;">
+  <div class="card shadow-lg" style="background-color: #fff; margin: 10% auto; padding: 20px; border-radius: 10px; width: 300px; text-align: center;">
+    <h5 class="mb-4">Choose Payment Method</h5>
+    <a href="{% url 'cash-payment' %}" class="btn btn-primary w-100 mb-3">Cash</a>
+    <a href="{% url 'transfer-payment' %}" class="btn btn-success w-100 mb-3">Transfer</a>
+    <button onclick="closePaymentModal()" class="btn btn-danger w-100">Cancel</button>
+  </div>
+</div>
+
+<!-- Script untuk Menampilkan Modal -->
+<script>
+  function showPaymentModal() {
+    document.getElementById('paymentModal').style.display = 'block';
+  }
+
+  function closePaymentModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+  }
+</script>
 {% endblock main-content %}
